@@ -9,7 +9,7 @@
 endmodule*/
 
 /* Template for module
-    wire [15:0] a;
+    wire [15:0] a;      //corresponds to 16 bits
     and a0(a[0], ~w, ~x, ~y, ~z);
     and a1(a[1], ~w, ~x, ~y, z);
     and a2(a[2], ~w, ~x, y, ~z);
