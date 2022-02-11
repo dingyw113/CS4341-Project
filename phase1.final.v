@@ -171,7 +171,7 @@ module f5(input w, x, y, z, output o);
   and a15(a[15], w, x, y, z);
   or o1(o, a[3], a[4], a[5], a[6], a[7], a[8], a[12], a[14], a[15]);
 
-endmodule;
+endmodule
 
 module f6(input w,x,y,z, output o);
 
