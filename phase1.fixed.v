@@ -59,6 +59,12 @@ module testbench; // Runner/stimulus
                  // Time units can be changed at the very top of the file, here is an example: `timescale 1ps/1ps
 
             $monitor ("| %2d|%1d|%1d|%1d|%1d| %1d| %1d|", i, w, x, y, z, f[8], f[9]); // Similar syntax to C print statements, will display if any values change
+            
+            // The key thing in this loop is that we don't need to call or invoke the modules to show that they've changed between inputs
+            // By instantiating them and "hooking up" their inputs and outputs to this module's inputs and outputs, we have created a full circuit
+            // Any time an input is changed to the whole circuit, the outputs change automatically, just like in real life
+            // Verilog is less of a programming language and more of a representation of actual circuits
+            
         end
 
         #10;
