@@ -1,7 +1,6 @@
 /*module breadboard (input w, x, y, z, output [9:0] o);
     wire w, x, y, z;
     reg [9:0] o;
-
     always @ (w, x, y, z, o)
     begin
         o[8] = (~w&y)|(x&~y)|(~w&~z)|(w&~y&z); // w'y + xy' + w'z' + wy'z
@@ -9,25 +8,70 @@
     end
 endmodule*/
 
+/* Template for module
+    wire [15:0] a;
+    and a0(a[0], ~w, ~x, ~y, ~z);
+    and a1(a[1], ~w, ~x, ~y, z);
+    and a2(a[2], ~w, ~x, y, ~z);
+    and a3(a[3], ~w, ~x, y, z);
+    and a4(a[4], ~w, x, ~y, ~z);
+    and a5(a[5], ~w, x, ~y, z);
+    and a6(a[6], ~w, x, y, ~z);
+    and a7(a[7], ~w, x, y, z);
+    and a8(a[8], w, ~x, ~y, ~z);
+    and a9(a[9], w, ~x, ~y, z);
+    and a10(a[10], w, ~x, y, ~z);
+    and a11(a[11], w, ~x, y, z);
+    and a12(a[12], w, x, ~y, ~z);
+    and a13(a[13], w, x, ~y, z);
+    and a14(a[14], w, x, y, ~z);
+    and a15(a[15], w, x, y, z);
+    or o1(o, a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13], a[14], a[15]);
+*/
+
 module f8(input w, x, y, z, output o); // "Class" f8
     
-    wire a, b, c, d;
-    and a1(a, ~w, y); // w'y
-    and a2(b, x, ~y); // xy'
-    and a3(c, ~w, ~z); // w'z'
-    and a4(d, w, ~y, z); // wy'z
-    or o1(o, a, b, c, d); // w'y + xy' + w'z' + wy'z
+    wire [15:0] a;
+    and a0(a[0], ~w, ~x, ~y, ~z); // Wires that connect the gates for this circuit together
+    //and a1(a[1], ~w, ~x, ~y, z); // and is the "class," a1 is the instantiation, the first parameter a is the output, the rest (x, z) are inputs
+    and a2(a[2], ~w, ~x, y, ~z);
+    and a3(a[3], ~w, ~x, y, z);
+    and a4(a[4], ~w, x, ~y, ~z);
+    and a5(a[5], ~w, x, ~y, z);
+    and a6(a[6], ~w, x, y, ~z);
+    and a7(a[7], ~w, x, y, z);
+    //and a8(a[8], w, ~x, ~y, ~z);
+    and a9(a[9], w, ~x, ~y, z);
+    //and a10(a[10], w, ~x, y, ~z);
+    //and a11(a[11], w, ~x, y, z);
+    and a12(a[12], w, x, ~y, ~z);
+    and a13(a[13], w, x, ~y, z);
+    //and a14(a[14], w, x, y, ~z);
+    //and a15(a[15], w, x, y, z);
+    or o1(o, a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13], a[14], a[15]); // Same parameter ordering for or gates
 
 endmodule
 
 module f9(input w, x, y, z, output o); // "Class" f9
 
-    wire a, b, c, d; // Wires that connect the gates for this circuit together
-    and a1(a, x, z); // and is the "class," a1 is the instantiation, the first parameter a is the output, the rest (x, z) are inputs
-    and a2(b, w, x, ~y);
-    and a3(c, w, ~y, z);
-    and a4(d, ~x, y, ~z);
-    or o1(o, a, b, c, d); // Same parameter ordering for or gates
+    wire [15:0] a;
+    //and a0(a[0], ~w, ~x, ~y, ~z);
+    //and a1(a[1], ~w, ~x, ~y, z);
+    and a2(a[2], ~w, ~x, y, ~z);
+    //and a3(a[3], ~w, ~x, y, z);
+    //and a4(a[4], ~w, x, ~y, ~z);
+    and a5(a[5], ~w, x, ~y, z);
+    //and a6(a[6], ~w, x, y, ~z);
+    and a7(a[7], ~w, x, y, z);
+    //and a8(a[8], w, ~x, ~y, ~z);
+    and a9(a[9], w, ~x, ~y, z);
+    and a10(a[10], w, ~x, y, ~z);
+    //and a11(a[11], w, ~x, y, z);
+    and a12(a[12], w, x, ~y, ~z);
+    and a13(a[13], w, x, ~y, z);
+    //and a14(a[14], w, x, y, ~z);
+    and a15(a[15], w, x, y, z);
+    or o1(o, a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13], a[14], a[15]);
 
 endmodule
 
