@@ -29,26 +29,20 @@ endmodule*/
     or o1(o, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13], a[14], a[15]);
 */
 
+/**************** By Yiwei Ding ********************/
+
 module f4(input w, x, y, z, output o); // "Class" f4
 
   wire [15:0] a;
 
   and a0(a[0], ~w, ~x, ~y, ~z);
-  //and a1(a[1], ~w, ~x, ~y, z);
   and a2(a[2], ~w, ~x, y, ~z);
   and a3(a[3], ~w, ~x, y, z);
-  //and a4(a[4], ~w, x, ~y, ~z);
   and a5(a[5], ~w, x, ~y, z);
   and a6(a[6], ~w, x, y, ~z);
   and a7(a[7], ~w, x, y, z);
-  //and a8(a[8], w, ~x, ~y, ~z);
-  //and a9(a[9], w, ~x, ~y, z);
-  //and a10(a[10], w, ~x, y, ~z);
-  //and a11(a[11], w, ~x, y, z);
   and a12(a[12], w, x, ~y, ~z);
   and a13(a[13], w, x, ~y, z);
-  //and a14(a[14], w, x, y, ~z);
-  //and a15(a[15], w, x, y, z);
   or o1(o, a[2], a[3], a[5], a[6], a[7], a[12], a[13]);
 
 endmodule
@@ -57,26 +51,20 @@ module f5(input w, x, y, z, output o);
 
   wire [15:0] a;
 
-  //and a0(a[0], ~w, ~x, ~y, ~z);
-  //and a1(a[1], ~w, ~x, ~y, z);
-  //and a2(a[2], ~w, ~x, y, ~z);
   and a3(a[3], ~w, ~x, y, z);
   and a4(a[4], ~w, x, ~y, ~z);
   and a5(a[5], ~w, x, ~y, z);
   and a6(a[6], ~w, x, y, ~z);
   and a7(a[7], ~w, x, y, z);
   and a8(a[8], w, ~x, ~y, ~z);
-  //and a9(a[9], w, ~x, ~y, z);
-  //and a10(a[10], w, ~x, y, ~z);
-  //and a11(a[11], w, ~x, y, z);
   and a12(a[12], w, x, ~y, ~z);
-  //and a13(a[13], w, x, ~y, z);
   and a14(a[14], w, x, y, ~z);
   and a15(a[15], w, x, y, z);
   or o1(o, a[3], a[4], a[5], a[6], a[7], a[8], a[12], a[14], a[15]);
 
 endmodule;
 
+/**************** By Brendan Anderson ********************/
 
 module f6(input w,x,y,z, output o);
 
@@ -108,15 +96,7 @@ module f7(input w,x,y,z, output o);
 
 endmodule
 
-
-
-
-
-
-
-
-
-
+/**************** By Sam Ofiaza ********************/
 
 module f8(input w, x, y, z, output o); // "Class" f8
 
